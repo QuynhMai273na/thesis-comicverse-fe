@@ -1,8 +1,12 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
 import logo from "./assets/logo.svg";
 import "./assets/App.css";
 import ProductList from "./components/product/ProductList/ProductList";
 import ProductForm from "./components/product/ProductForm/ProductForm";
-import React, { useState } from "react";
+import Home from "./pages/HomeScreen/Home";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Signup/Signup";
 
 function App() {
   const [refresh, setRefresh] = useState(false);
@@ -12,26 +16,18 @@ function App() {
   };
 
   return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </Router>
 
-      <div>
-        <ProductList key={refresh} />
-        <ProductForm onProductAdded={handleProductAdded} />
-      </div>
+    // <div>
+    //   <ProductList key={refresh} />
+    //   <ProductForm onProductAdded={handleProductAdded} />
+    // </div>
     // </div>
   );
 }
