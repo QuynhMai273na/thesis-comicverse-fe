@@ -7,6 +7,7 @@ const Signup = ({ onAccountRegister }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repassword, setRePassword] = useState("");
+  const [registerStatus, setRegisterStatus] = useState(""); // State to manage login status message
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -15,12 +16,24 @@ const Signup = ({ onAccountRegister }) => {
     console.log(newAcc);
 
     try {
-      await accountService.register(newAcc);
-      onAccountRegister(); // Trigger refresh
-      setName("");
-      setEmail("");
-      setPassword("");
-      setRePassword("");
+      const response = await accountService.register(newAcc);
+      if (response.key !== "Failed" && response.value) {
+        setRegisterStatus("Login successful! Now you can login"); // Set success message
+
+        onAccountRegister(); // Trigger refresh
+        setName("");
+        setEmail("");
+        setPassword("");
+        setRePassword("");
+
+        // setTimeout(() => {
+        //   navigate("/"); // Redirect to the home page after 2 seconds
+        // }, 2000); // Adjust the timeout as needed
+      } else {
+        setRegisterStatus(
+          "Login failed. Please check your username or password."
+        );
+      }
     } catch (error) {
       console.error("Error Regist Account:", error);
     }
@@ -98,13 +111,13 @@ const Signup = ({ onAccountRegister }) => {
             </button>
           </div>
         </form>
-
+        {registerStatus && <p className="login-status">{registerStatus}</p>}{" "}
+        {/* Display login status message */}
         <div className="toLogin">
           <p>
             Already have an account? <a href="/login">Login</a>
           </p>
         </div>
-
         <p className="text-center mt-3">Or sign up with:</p>
         <div className="text-center social-icons">
           <i className="fab fa-facebook mr-3"></i>
