@@ -105,16 +105,15 @@ const Signup = ({ onAccountRegister }) => {
           </p>
         </div>
 
-        <p className="text-center mt-3">Or sign up with:</p>
-        <div className="text-center social-icons">
-          <i className="fab fa-facebook mr-3"></i>
-          <i className="fab fa-google mr-3"></i>
-          <i className="fab fa-twitter mr-3"></i>
-          <i className="fab fa-github"></i>
-        </div>
-      </div>
-    </div>
-  );
-};
+                <p className="signupOption">Or sign up with:</p>
+                <div className="socialIcon">
+                    <i className="fab fa-facebook mr-3"></i>
+                    <i className="fab fa-google mr-3"></i>
+                    <i className="fab fa-twitter mr-3"></i>
+                </div>
+            </div>
+        </div>  
+    );
+}
 
 export default Signup;
