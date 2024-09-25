@@ -1,48 +1,120 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Signup.css";
+import accountService from "../../services/apiServices/accountAPI";
 
-const Signup = () => {
-    return (
-        <div className="signup-container">
-            <div className="left-content">
-                <h3>The best offer for your business</h3>
-                <p>Fill later.</p>
-            </div>
+const Signup = ({ onAccountRegister }) => {
+  const [username, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repassword, setRePassword] = useState("");
 
-            <div className="addUser">
-                <h3>Sign Up</h3>
-                <form className="addUserForm">
-                    <div className="inputGroup">
-                        <label htmlFor="name">Username:</label>
-                        <input type="text" id="username" autoComplete="off" placeholder="Enter your username" />
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log("Submited");
+    const newAcc = { username, email, password, repassword };
+    console.log(newAcc);
 
-                        <label htmlFor="email">Email:</label>
-                        <input type="email" id="email" autoComplete="off" placeholder="Enter your email" />
+    try {
+      await accountService.register(newAcc);
+      onAccountRegister(); // Trigger refresh
+      setName("");
+      setEmail("");
+      setPassword("");
+      setRePassword("");
+    } catch (error) {
+      console.error("Error Regist Account:", error);
+    }
+  };
 
-                        <label htmlFor="password">Password:</label>
-                        <input type="password" id="password" autoComplete="off" placeholder="Enter your password" />
+  return (
+    <div className="signup-container">
+      <div className="left-content">
+        <h3>The best offer for your business</h3>
+        <p>Fill later.</p>
+      </div>
 
-                        <label htmlFor="confirmPassword">Confirm Password:</label>
-                        <input type="password" id="confirmPassword" autoComplete="off" placeholder="Confirm your password" />
+      <div className="addUser">
+        <h3>Sign Up</h3>
+        <form className="addUserForm" onSubmit={handleSubmit}>
+          <div className="inputGroup">
+            <label htmlFor="name" className="form-label">
+              Username:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="username"
+              autoComplete="off"
+              placeholder="Enter your username"
+              value={username}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
 
-                        <button type="submit" className="btn btn-info">Sign Up</button>
-                    </div>
-                </form>
+            <label htmlFor="email" className="form-label">
+              Email:
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              autoComplete="off"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-                <div className="toLogin">
-                    <p>Already have an account? <a href="/login">Login</a></p>
-                </div>
+            <label htmlFor="password" className="form-label">
+              Password:
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              autoComplete="off"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
 
-                <p className="text-center mt-3">Or sign up with:</p>
-                <div className="text-center social-icons">
-                    <i className="fab fa-facebook mr-3"></i>
-                    <i className="fab fa-google mr-3"></i>
-                    <i className="fab fa-twitter mr-3"></i>
-                    <i className="fab fa-github"></i>
-                </div>
-            </div>
-        </div>  
-    );
-}
+            <label htmlFor="confirmPassword" className="form-label">
+              Confirm Password:
+            </label>
+            <input
+              type="password"
+              id="confirmPassword"
+              className="form-control"
+              autoComplete="off"
+              placeholder="Confirm your password"
+              value={repassword}
+              onChange={(e) => setRePassword(e.target.value)}
+              required
+            />
+
+            <button type="submit" className="btn btn-info">
+              Sign Up
+            </button>
+          </div>
+        </form>
+
+        <div className="toLogin">
+          <p>
+            Already have an account? <a href="/login">Login</a>
+          </p>
+        </div>
+
+        <p className="text-center mt-3">Or sign up with:</p>
+        <div className="text-center social-icons">
+          <i className="fab fa-facebook mr-3"></i>
+          <i className="fab fa-google mr-3"></i>
+          <i className="fab fa-twitter mr-3"></i>
+          <i className="fab fa-github"></i>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Signup;

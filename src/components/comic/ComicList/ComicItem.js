@@ -1,36 +1,35 @@
-// src/components/ProductList/ProductListItem.js
+// src/components/ComicList/ComicListItem.js
 import React, { useState } from "react";
-import productService from "../../../services/apiServices/productAPI";
+import comicService from "../../../services/apiServices/comicAPI";
 
-const ProductListItem = ({ product, onDelete, onEdit }) => {
+const ComicListItem = ({ comic, onDelete, onEdit }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedName, setEditedName] = useState(product.name);
-  const [editedPrice, setEditedPrice] = useState(product.price);
+  const [editedTitle, setEditedTitle] = useState(comic.title);
+  const [editedPrice, setEditedPrice] = useState(comic.price);
 
   const handleEdit = async () => {
     setIsEditing(true);
   };
 
   const handleSave = async () => {
-    const editedProduct = {
-      ...product,
-      name: editedName,
+    const editedComic = {
+      ...comic,
+      title: editedTitle,
       price: parseFloat(editedPrice),
     };
     try {
-      await productService.updateProduct(product.id, editedProduct);
+      await comicService.updateComic(comic.comicId, editedComic);
       setIsEditing(false);
-      onEdit(); // Refresh product list
+      onEdit(); // Refresh Comic list
     } catch (error) {
-      console.error("Error updating product:", error);
+      console.error("Error updating Comic:", error);
     }
   };
 
   const handleCancel = () => {
     setIsEditing(false);
-    // Reset edited values
-    setEditedName(product.name);
-    setEditedPrice(product.price);
+    setEditedTitle(comic.title);
+    setEditedPrice(comic.price);
   };
 
   return (
@@ -41,8 +40,8 @@ const ProductListItem = ({ product, onDelete, onEdit }) => {
             <input
               type="text"
               className="form-control"
-              value={editedName}
-              onChange={(e) => setEditedName(e.target.value)}
+              value={editedTitle}
+              onChange={(e) => setEditedTitle(e.target.value)}
               required
             />
           </div>
@@ -67,7 +66,7 @@ const ProductListItem = ({ product, onDelete, onEdit }) => {
       ) : (
         <div className="d-flex justify-content-between align-items-center">
           <span>
-            {product.name} - ${product.price}
+            {comic.title} - ${comic.price}
           </span>
           <div>
             <button className="btn btn-danger me-2" onClick={onDelete}>
@@ -83,4 +82,4 @@ const ProductListItem = ({ product, onDelete, onEdit }) => {
   );
 };
 
-export default ProductListItem;
+export default ComicListItem;

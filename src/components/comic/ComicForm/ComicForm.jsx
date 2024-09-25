@@ -1,60 +1,60 @@
-// src/components/ProductForm/ProductForm.js
+// src/components/ComicForm/ComicForm.js
 import React, { useState } from "react";
-import productService from "../../../services/apiServices/productAPI";
+import comicService from "../../../services/apiServices/comicAPI";
 
-const ProductForm = ({ onProductAdded }) => {
-  const [name, setName] = useState("");
+const ComicForm = ({ onComicAdded }) => {
+  const [title, setName] = useState("");
   const [price, setPrice] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const newProduct = { name, price: parseFloat(price) };
+    const newComic = { title, price: parseFloat(price) };
     try {
-      await productService.addProduct(newProduct);
-      onProductAdded(); // Trigger refresh
+      await comicService.addComic(newComic);
+      onComicAdded(); // Trigger refresh
       setName("");
       setPrice("");
     } catch (error) {
-      console.error("Error adding product:", error);
+      console.error("Error adding Comic:", error);
     }
   };
 
   return (
     <div className="container">
-      <h2 className="my-4">Add Product</h2>
+      <h2 className="my-4">Add Comic</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="productName" className="form-label">
-            Name:
+          <label htmlFor="ComicName" className="form-label">
+            title:
           </label>
           <input
             type="text"
             className="form-control"
-            id="productName"
-            value={name}
+            id="ComicName"
+            value={title}
             onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="productPrice" className="form-label">
+          <label htmlFor="ComicPrice" className="form-label">
             Price:
           </label>
           <input
             type="number"
             className="form-control"
-            id="productPrice"
+            id="ComicPrice"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             required
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          Add Product
+          Add Comic
         </button>
       </form>
     </div>
   );
 };
 
-export default ProductForm;
+export default ComicForm;

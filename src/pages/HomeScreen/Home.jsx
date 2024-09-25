@@ -1,7 +1,7 @@
 import logo from "../../assets/logo.svg";
 // import "../HomeScreen/Home.css";
-import ProductList from "../../components/product/ProductList/ProductList";
-import ProductForm from "../../components/product/ProductForm/ProductForm";
+import ComicList from "../../components/comic/ComicList/ComicList";
+import ComicForm from "../../components/comic/ComicForm/ComicForm";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Correct import for useNavigate
 
@@ -9,7 +9,7 @@ function Home() {
   const [refresh, setRefresh] = useState(false);
   const navigate = useNavigate(); // Initialize the navigation hook
 
-  const handleProductAdded = () => {
+  const handleComicAdded = () => {
     setRefresh(!refresh); // Toggle refresh state to trigger re-render
   };
 
@@ -33,9 +33,10 @@ function Home() {
         Signup
       </button>
 
-      {/* Product List and Form */}
-      <ProductList refresh={refresh} />
-      <ProductForm onProductAdded={handleProductAdded} />
+      <div>
+        <ComicList key={refresh} />
+        <ComicForm onComicAdded={handleComicAdded} />
+      </div>
     </div>
   );
 }
