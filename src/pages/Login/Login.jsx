@@ -1,24 +1,41 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import "./Login.css";
 import accountService from "../../services/apiServices/accountAPI";
 
 const Login = ({ onAccountLogin }) => {
-  // const [email, setEmail] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [loginStatus, setLoginStatus] = useState(""); // State to manage login status message
+  const navigate = useNavigate(); // Initialize the navigate hook
 
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
-    console.log("Submited");
+    console.log("Submitted");
     const loginAcc = { username, password };
     console.log(loginAcc);
     try {
-      await accountService.login(loginAcc);
-      onAccountLogin(); // Trigger refresh
-      setUserName("");
-      setPassword("");
+      const response = await accountService.login(loginAcc);
+
+      if (response.key !== "Failed" && response.value) {
+        setLoginStatus("Login successful! Redirecting to home..."); // Set success message
+
+        // Optional: Store the token if needed for future authenticated requests
+        localStorage.setItem("authToken", response.key);
+
+        setTimeout(() => {
+          navigate("/");
+        }, 2000); 
+      } else {
+        setLoginStatus(
+          "Login failed. Please check your username or password."
+        );
+      }
     } catch (error) {
       console.error("Error login:", error);
+      setLoginStatus(
+        "Login failed. Please check your credentials and try again."
+      ); // Set error message
     }
   };
 
@@ -66,13 +83,13 @@ const Login = ({ onAccountLogin }) => {
             </button>
           </div>
         </form>
-
+        {loginStatus && <p className="login-status">{loginStatus}</p>}{" "}
+        {/* Display login status message */}
         <div className="toSignup">
           <p>
             Don't have an account? <a href="/signup">Sign Up</a>
           </p>
         </div>
-
         <p className="text-center mt-3">Or sign up with:</p>
         <div className="text-center social-icons">
           <i className="fab fa-facebook mr-3"></i>
