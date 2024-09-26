@@ -1,7 +1,7 @@
 // src/services/accountService.js
 import axios from "axios";
 
-const baseURL = "https://localhost:1234/api/Account";
+const baseURL = `${process.env.REACT_APP_API_URL}/Account`;
 
 const accountService = {
   login: async (acc) => {

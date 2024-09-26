@@ -1,7 +1,7 @@
 // src/services/comicService.js
 import axios from "axios";
 
-const baseURL = "https://localhost:1234/api/Comic";
+const baseURL = `${process.env.REACT_APP_API_URL}/Comic`;
 
 const comicService = {
   getAllComics: async () => {

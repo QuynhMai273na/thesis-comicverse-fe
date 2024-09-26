@@ -34,7 +34,7 @@ const ComicList = () => {
 
   return (
     <div className="container">
-      <h2 className="my-4">Comic List</h2>
+      <h2 className="my-4">Comic List </h2>
       <ul className="list-group">
         {comics.map((comic) => (
           <ComicListItem

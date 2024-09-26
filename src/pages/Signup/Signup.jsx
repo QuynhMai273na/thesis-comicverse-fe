@@ -18,9 +18,10 @@ const Signup = ({ onAccountRegister }) => {
     try {
       const response = await accountService.register(newAcc);
       if (response.key !== "Failed" && response.value) {
+
         setRegisterStatus("Login successful! Now you can login"); // Set success message
 
-        onAccountRegister(); // Trigger refresh
+        // onAccountRegister(); // Trigger refresh
         setName("");
         setEmail("");
         setPassword("");
@@ -36,6 +37,8 @@ const Signup = ({ onAccountRegister }) => {
       }
     } catch (error) {
       console.error("Error Regist Account:", error);
+      console.log(error.response.data);
+      setRegisterStatus(error.response.data.description);
     }
   };
 

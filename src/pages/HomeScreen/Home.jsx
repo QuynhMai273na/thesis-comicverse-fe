@@ -20,11 +20,10 @@ function Home() {
   const handleSignupRedirect = () => {
     navigate("/signup"); // Redirect to Signup page
   };
-
+  console.log(process.env.REACT_APP_API_URL);
   return (
     <div className="home-container">
       <img src={logo} alt="Logo" className="logo" />
-
       {/* Two buttons to redirect to Login and Signup */}
       <button onClick={handleLoginRedirect} className="btn btn-primary">
         Login
@@ -32,7 +31,6 @@ function Home() {
       <button onClick={handleSignupRedirect} className="btn btn-secondary">
         Signup
       </button>
-
       <div>
         <ComicList key={refresh} />
         <ComicForm onComicAdded={handleComicAdded} />
