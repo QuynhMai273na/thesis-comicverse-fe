@@ -21,6 +21,10 @@ function Home() {
     navigate("/signup"); // Redirect to Signup page
   };
   console.log(process.env.REACT_APP_API_URL);
+
+
+
+  
   return (
     <div className="home-container">
       <img src={logo} alt="Logo" className="logo" />

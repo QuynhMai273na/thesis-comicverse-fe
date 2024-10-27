@@ -5,6 +5,7 @@ import "./assets/App.css";
 import Home from "./pages/HomeScreen/Home";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
+import TaskDashboard from "./pages/ManagerDashboard/TaskManagerDashboard";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<TaskDashboard />} />
       </Routes>
     </Router>
   );
