@@ -7,6 +7,8 @@ import HomeShowCases from "./ShowCases/HomeShowCase";
 
 
 const Homepage = () => {
+
+  
   return (
     <div className="flex-1 w-full h-full">
       <Navbar />

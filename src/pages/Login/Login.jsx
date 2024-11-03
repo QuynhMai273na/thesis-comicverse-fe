@@ -18,7 +18,7 @@ const Login = ({ onAccountLogin }) => {
       const response = await accountService.login(loginAcc);
 
       if (response.key !== "Failed" && response.value) {
-        setLoginStatus("Login successful! Redirecting to home..."); // Set success message
+        setLoginStatus("Login successful! Redirecting to ..."); // Set success message
 
         // Optional: Store the token if needed for future authenticated requests
         sessionStorage.setItem("authToken", response.key);
@@ -30,10 +30,21 @@ const Login = ({ onAccountLogin }) => {
             response.value.role === "Quality Control" ||
             response.value.role === "Manager" ||
             response.value.role === "Employee"
-          )
+          ) {
             navigate("/admin");
+            sessionStorage.setItem(
+              "internal-user",
+              response.value.firstName + " " + response.value.lastName
+            );
+          }
 
-          if (response.value.role === "User") navigate("/home");
+          if (response.value.role === "User") {
+            sessionStorage.setItem(
+              "internal-user",
+              response.value.firstName + " " + response.value.lastName
+            );
+            navigate("/home");
+          }
         }, 2000);
       } else {
         setLoginStatus("Login failed. Please check your username or password.");
