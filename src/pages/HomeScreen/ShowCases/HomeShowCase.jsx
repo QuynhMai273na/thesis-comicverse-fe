@@ -35,7 +35,7 @@ const HomeShowCases = () => {
                                   SPY x FAMILY
                                 </div>
                                 <div
-                                  class="subtitle text-black font-medium"
+                                  class="subtitle text-black font-large"
                                   data-v-f0eda0ce
                                 >
                                   Tatsuya Endo
