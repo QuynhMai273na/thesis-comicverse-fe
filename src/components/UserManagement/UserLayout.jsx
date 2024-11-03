@@ -1,8 +1,8 @@
 import React from "react";
 // import { Outlet } from "react-router-dom";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
-import Dashboard from "../Dashboard/Dashboard";
+import Sidebar from "./UserSidebar";
+import Header from "./UserHeader";
+import Dashboard from "./UserDashboard";
 
 export default function Layout() {
     return (

@@ -1,13 +1,16 @@
 import React from "react";
 import { MdManageAccounts } from "react-icons/md";
-import { AdminMenuLower, AdminMenuUpper } from "../Navbar/AdminNav";
+import { AdminMenuLower, AdminMenuUpper } from "./AdminNav";
 import { Link, useLocation } from 'react-router-dom';
 import classNames from "classnames";
 import { CiLogout } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 const linkClasses = "flex items-center gap-2 font-light px-3 py-2 hover:bg-neutral-700 hover:no-underline active:bg-neutral-600 duration-200 rounded-sm text-base";
 
 export default function Sidebar() {
+    const nav = useNavigate();
+
     return (
         <div className="bg-neutral-900 w-60 p-3 flex flex-col text-white">
             <div className="flex items-center
@@ -26,6 +29,7 @@ export default function Sidebar() {
                 ))}
                 <div
                     className={classNames("text-red-400 cursor-pointer",linkClasses)}
+                    onClick={() => nav("/") }
                 >
                     <span className="text-xl"><CiLogout /></span>
                     <span>Log out</span>

@@ -2,6 +2,8 @@ import React from "react";
 import DashboardStats from "./DashboardStats";
 import TransactionChart from "./TransactionChart";
 import PublisherChart from "./PublisherChart";
+import RecentPublish from "./RecentPublish";
+import PopularComic from "./PopularComic";
 
 function Dashboard() {
   return (
@@ -10,6 +12,10 @@ function Dashboard() {
       <div className="flex flex-row gap-4 w-full">
         <TransactionChart />
         <PublisherChart />
+      </div>
+      <div className="flex flex-row gap-4 w-full">
+        <RecentPublish />
+        <PopularComic />
       </div>
     </div>
   );

@@ -1,14 +1,14 @@
 import React from "react";
-import Navbar from "../../components/Navbar/Navbar";
-import Slide from "../../components/Slide/Slide";
+import Navbar from "../../components/Home/Navbar/Navbar";
+import Slide from "../../components/Home/Slide/Slide";
 
 const Homepage = () => {
-    return (
-        <div className="homepage-container">
-            <Navbar />
-            <Slide />
-        </div>
-    );
-}
+  return (
+    <div className="flex-1 w-full h-full">
+      <Navbar />
+      <Slide />
+    </div>
+  );
+};
 
 export default Homepage;

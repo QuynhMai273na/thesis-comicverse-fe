@@ -2,7 +2,7 @@ import React from "react";
 // import { IoMdSearch } from "react-icons/io";
 // import { FaBookOpen } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
-import Logo from "../../assets/Logo/HomeLogo.png";
+import Logo from "../../../assets/Logo/HomeLogo.png";
 
 const Menu = [
     {
