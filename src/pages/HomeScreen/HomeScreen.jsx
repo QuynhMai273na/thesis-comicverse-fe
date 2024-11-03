@@ -7,6 +7,8 @@ import HomeShowCases from "./ShowCases/HomeShowCase";
 
 
 const Homepage = () => {
+
+  
   return (
     <div className="homepage-container">
       <Navbar />

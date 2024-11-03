@@ -1,23 +1,34 @@
-import React from "react";
-// import { HiOutlineChatAlt } from "react-icons/hi";
-// import { HiOnlineBell } from "react-icons/hi";
+import React, { useEffect, useState } from "react";
 import { IoMdSearch } from "react-icons/io";
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems
-} from "@headlessui/react";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { useNavigate } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
 import { AiFillProfile } from "react-icons/ai";
 import { IoMdSettings } from "react-icons/io";
 
 export default function Header() {
-    const nav = useNavigate()
+  const nav = useNavigate();
+  const [curentUser, setCurentUser] = useState(null);
 
+  // Fetch the role from authToken stored in sessionStorage
+  useEffect(() => {
+    const curentUser = sessionStorage.getItem("internal-user");
+
+    if (curentUser) {
+      try {
+        setCurentUser(curentUser); // Set the role from the decoded token
+      } catch (error) {
+        console.error("Error decoding authToken:", error);
+      }
+    }
+  });
+  // Logout function
+  const handleLogout = () => {
+    sessionStorage.removeItem("authToken"); // Clear the token from sessionStorage
+    nav("/login"); // Redirect to login page
+  };
   return (
-    <div className="bg-white h-16 px-4 flex justify-between items-center">
+    <div className="bg-cyan-800 h-16 px-4 flex justify-between items-center">
       <div>
         <div className="relative group hidden sm:block">
           <input
@@ -37,6 +48,10 @@ export default function Header() {
           />
         </div>
       </div>
+
+      {/* add div tag to show a text */}
+      <div className="text-white text-lg font-semibold">Hi, {curentUser}.</div>
+
       <div className="flex items-center gap-2 mr-2">
         {/* <HiOutlineChatAlt fontSize={24} />
                 <HiOnlineBell fontSize={24} /> */}
@@ -46,7 +61,7 @@ export default function Header() {
               className="ml-2 inline-flex rounded-full focus:outline-none focus:ring-2
                 focus:ring-neutral-400"
             >
-              <span className="sr-only">Manh Duc</span>
+              <span className="sr-only">{curentUser}</span>
               <div
                 className="h-10 w-10 rounded-full bg-sky-500 bg-cover bg-no-repeat bg-center bg-center"
                 style={{
@@ -54,7 +69,7 @@ export default function Header() {
                     'url("https://i.pinimg.com/564x/d9/03/0a/d9030a5696d2507a1dfb38a686ac93c2.jpg")',
                 }}
               >
-                <span className="sr-only">Duc Manh</span>
+                <span className="sr-only">{curentUser}</span>
               </div>
             </MenuButton>
           </div>
@@ -71,44 +86,44 @@ export default function Header() {
             ring-opacity-5 focus:outline-none"
           >
             <MenuItem>
-                {({ active }) => (
-                    <button 
-                    onClick={() => nav("/profile")}
-                    className={`${
-                        active ? "bg-neutral-100" : "text-neutral-900"
-                    } group flex rounded-sm items-center w-full px-2 py-2 text-sm`}
-                    >
-                    <AiFillProfile className="h-5 w-5 mr-2" />
-                    Your profile
-                    </button>
-                )}
-            </MenuItem>    
+              {({ active }) => (
+                <button
+                  onClick={() => nav("/profile")}
+                  className={`${
+                    active ? "bg-neutral-100" : "text-neutral-900"
+                  } group flex rounded-sm items-center w-full px-2 py-2 text-sm`}
+                >
+                  <AiFillProfile className="h-5 w-5 mr-2" />
+                  {curentUser}
+                </button>
+              )}
+            </MenuItem>
             <MenuItem>
-                {({ active }) => (
-                    <button 
-                    onClick={() => nav("/settings")}
-                    className={`${
-                        active ? "bg-neutral-100" : "text-neutral-900"
-                    } group flex rounded-sm items-center w-full px-2 py-2 text-sm`}
-                    >
-                    <IoMdSettings className="h-5 w-5 mr-2" />
-                    Settings
-                    </button>
-                )}
-            </MenuItem> 
+              {({ active }) => (
+                <button
+                  onClick={() => nav("/settings")}
+                  className={`${
+                    active ? "bg-neutral-100" : "text-neutral-900"
+                  } group flex rounded-sm items-center w-full px-2 py-2 text-sm`}
+                >
+                  <IoMdSettings className="h-5 w-5 mr-2" />
+                  Settings
+                </button>
+              )}
+            </MenuItem>
             <MenuItem>
-                {({ active }) => (
-                    <button 
-                    onClick={() => nav("/")}
-                    className={`${
-                        active ? "bg-neutral-100" : "text-neutral-900"
-                    } group flex rounded-sm items-center w-full px-2 py-2 text-sm`}
-                    >
-                    <CiLogout  className="h-5 w-5 mr-2" />
-                    Sign Out
-                    </button>
-                )}
-            </MenuItem> 
+              {({ active }) => (
+                <button
+                  onClick={handleLogout}
+                  className={`${
+                    active ? "bg-neutral-100" : "text-neutral-900"
+                  } group flex rounded-sm items-center w-full px-2 py-2 text-sm`}
+                >
+                  <CiLogout className="h-5 w-5 mr-2" />
+                  Sign Out
+                </button>
+              )}
+            </MenuItem>
           </MenuItems>
         </Menu>
       </div>
