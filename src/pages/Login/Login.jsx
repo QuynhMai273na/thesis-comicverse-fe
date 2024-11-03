@@ -8,7 +8,7 @@ const Login = ({ onAccountLogin }) => {
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState(""); // State to manage login status message
   const navigate = useNavigate(); // Initialize the navigate hook
-
+            
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
     console.log("Submitted");
@@ -31,7 +31,7 @@ const Login = ({ onAccountLogin }) => {
             response.value.role === "Manager" ||
             response.value.role === "Employee"
           ) {
-            navigate("/admin");
+            navigate("/admin/dashboard");
             sessionStorage.setItem(
               "internal-user",
               response.value.firstName + " " + response.value.lastName

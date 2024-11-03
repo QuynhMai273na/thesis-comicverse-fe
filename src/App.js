@@ -38,22 +38,23 @@ function App() {
         <Route path="/dashboard" element={<TaskDashboard />} />
         {/* Home and admin pages */}
         <Route path="/home" element={<Home />} />
-        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin/dashboard" element={<AdminPage />} />
         {/* Layout and dashboard */}
         <Route path="/comics" element={<ComicForm />} />
-        <Route path="/addcomic" element={<CreateComic />} />
-        <Route path="/editcomic" element={<EditComic />} />
+        <Route path="/admin/addcomic" element={<CreateComic />} />
+        <Route path="/admin/editcomic" element={<EditComic />} />
         <Route path="/comicinfo" element={<ComicInfo />} />
         {/*Task management*/}
-        <Route path="/taskmanage" element={<Task />} />
-        <Route path="/tasklist" element={<TaskList />} />
-        <Route path="/addtask" element={<AddTask />} />
-        <Route path="/edittask" element={<EditTask />} />
+        <Route path="/admin/taskmanage" element={<Task />} />
+        <Route path="/admin/tasklist" element={<TaskList />} />
+        <Route path="/admin/addtask" element={<AddTask />} />
+        <Route path="/admin/edittask" element={<EditTask />} />
         {/*User management*/}
-        <Route path="/usermanage" element={<UserManagement />} />
-        <Route path="/adduser" element={<AddUser />} />
-        <Route path="/edituser" element={<EditUser />} />
-        <Route path="/userinfo" element={<UserInfo />} />
+        <Route path="/admin/usermanage" element={<UserManagement />} />
+        <Route path="/admin/adduser" element={<AddUser />} />
+        <Route path="/admin/edituser" element={<EditUser />} />
+        {/* <Route path="/admin/deleteuser" element={<DeleteUser />} /> */}
+        <Route path="/admin/userinfo" element={<UserInfo />} />
         {/*Exception Pages*/}
         <Route path="/unauthorized" element={<Unauthorized />} />
 
