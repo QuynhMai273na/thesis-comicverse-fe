@@ -1,17 +1,18 @@
 import React from 'react';
-import { IoLibrary } from 'react-icons/io5';
 import { FaBook } from 'react-icons/fa';
 import { BsCollectionFill } from 'react-icons/bs';
-import { MdPublish } from 'react-icons/md';
+import { MdPeople, MdPublish } from 'react-icons/md';
 import { IoMdSettings } from "react-icons/io";
 import { IoMdHelpCircle } from "react-icons/io";
+import { MdDashboard } from "react-icons/md";
+import { GoTasklist } from "react-icons/go";
 
 export const AdminMenuUpper = [
     {
-        key: 'Library',
-        label: 'Library',
-        path: '/admin/library',
-        icon: <IoLibrary />,
+        key: 'Dashboard',
+        label: 'Dashboard',
+        path: '/admin/dashboard',
+        icon: <MdDashboard />,
     },
     {
         key: 'AddBook',
@@ -30,6 +31,18 @@ export const AdminMenuUpper = [
         label: 'Publisher',
         path: '/admin/publisher',
         icon: <MdPublish />,
+    },
+    {
+        key: 'TashManagement',
+        label: 'Tash Management',
+        path: '/admin/taskmanage',
+        icon: <GoTasklist />,
+    },
+    {
+        key: 'UserManagement',
+        label: 'User Management',
+        path: '/admin/usermanage',
+        icon: <MdPeople />,
     },
 ];
 
