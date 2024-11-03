@@ -25,6 +25,8 @@ import AddUser from "./pages/UserManagement/CreateUser";
 import EditUser from "./pages/UserManagement/EditUser";
 import UserInfo from "./pages/UserManagement/UserInfo";
 
+import Unauthorized from "./pages/Error/Unauthorized";
+
 function App() {
   <link href="./output.css" rel="stylesheet"></link>
   return (
@@ -52,6 +54,9 @@ function App() {
         <Route path="/adduser" element={<AddUser />} />
         <Route path="/edituser" element={<EditUser />} />
         <Route path="/userinfo" element={<UserInfo />} />
+        {/*Exception Pages*/}
+        <Route path="/unauthorized" element={<Unauthorized />} />
+
       </Routes>
     </Router>
   );

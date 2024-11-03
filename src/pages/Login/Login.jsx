@@ -21,15 +21,22 @@ const Login = ({ onAccountLogin }) => {
         setLoginStatus("Login successful! Redirecting to home..."); // Set success message
 
         // Optional: Store the token if needed for future authenticated requests
-        localStorage.setItem("authToken", response.key);
+        sessionStorage.setItem("authToken", response.key);
+        // localStorage.setItem("authToken", response.key);
 
         setTimeout(() => {
-          navigate("/");
-        }, 2000); 
+          if (
+            response.value.role === "SuperAdmin" ||
+            response.value.role === "Quality Control" ||
+            response.value.role === "Manager" ||
+            response.value.role === "Employee"
+          )
+            navigate("/admin");
+
+          if (response.value.role === "User") navigate("/home");
+        }, 2000);
       } else {
-        setLoginStatus(
-          "Login failed. Please check your username or password."
-        );
+        setLoginStatus("Login failed. Please check your username or password.");
       }
     } catch (error) {
       console.error("Error login:", error);
