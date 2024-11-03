@@ -7,7 +7,6 @@ import ch1 from "../../../assets/img/showcases/1-ch.png";
 // import ch3 from "../../../assets/img/showcases/3.jpg";
 
 const HomeShowCases = () => {
-
   return (
     <div className="showcase-container">
       <div data-server-rendered="true" id="__nuxt">
@@ -21,7 +20,6 @@ const HomeShowCases = () => {
                     <div class="carousel" data-v-f0eda0ce data-v-1b259b1c>
                       <div class="swiper-container mySwiper" data-v-f0eda0ce>
                         <div class="swiper-wrapper" data-v-f0eda0ce>
-
                           <div class="swiper-slide" data-v-f0eda0ce>
                             <div class="top" data-v-f0eda0ce>
                               <img
@@ -30,13 +28,19 @@ const HomeShowCases = () => {
                                 data-v-f0eda0ce
                               />
                               <div class="tpi" data-v-f0eda0ce>
-                                <div class="title" data-v-f0eda0ce>
+                                <div
+                                  class="title text-black font-bold"
+                                  data-v-f0eda0ce
+                                >
                                   SPY x FAMILY
                                 </div>
-                                <div class="subtitle" data-v-f0eda0ce>
+                                <div
+                                  class="subtitle text-black font-medium"
+                                  data-v-f0eda0ce
+                                >
                                   Tatsuya Endo
                                 </div>
-                                <div class="txt" data-v-f0eda0ce>
+                                <div class="text-black text-lg" data-v-f0eda0ce>
                                   In order to sneak into famous schools, the
                                   most capable spy in the West was ordered to
                                   form a family. However, his 'daughter' is
