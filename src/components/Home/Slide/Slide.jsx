@@ -1,8 +1,8 @@
 import React from "react";
-import Image1 from "../../assets/ComicPoster/1.jpg";
-import Image2 from "../../assets/ComicPoster/2.jpg";
-import Image3 from "../../assets/ComicPoster/3.jpg";
-import Image4 from "../../assets/ComicPoster/4.png";
+import Image1 from "../../../assets/ComicPoster/1.jpg";
+import Image2 from "../../../assets/ComicPoster/2.jpg";
+import Image3 from "../../../assets/ComicPoster/3.jpg";
+import Image4 from "../../../assets/ComicPoster/4.png";
 import Slider from "react-slick";
 
 const ImageList = [
