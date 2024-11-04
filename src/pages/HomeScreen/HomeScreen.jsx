@@ -10,7 +10,7 @@ const Homepage = () => {
 
   
   return (
-    <div className="homepage-container">
+    <div className="flex-1 w-full h-full">
       <Navbar />
       <Slide />
       <HomeFeaturesTable />

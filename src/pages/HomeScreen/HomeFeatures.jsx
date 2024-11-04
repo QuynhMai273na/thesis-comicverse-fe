@@ -27,7 +27,7 @@ const HomeFeaturesTable = () => {
               href="/features/all-features"
               class="button-secondary _2-buttons w-button"
             >
-              Br/owse Features
+              Browse Features
             </a>
           </div>
         </div>
@@ -66,7 +66,8 @@ const HomeFeaturesTable = () => {
               class="image home-feature-icon"
             />
             <div class="home-feature-content">
-              <h3 class="title h4-size home-feature-title">Copy-paste saver</h3>
+              <h3 class="title h4-size home-feature-title">
+                Copy-paste saver</h3>
               <p class="paragraph home-feature">
                 <span>
                   Import your translations in seconds at the right place, in
@@ -136,7 +137,7 @@ const HomeFeaturesTable = () => {
             />
             <div class="home-feature-content">
               <h3 class="title h4-size home-feature-title">
-                Comics, Manga,Webtoons
+                Comics, Manga, Webtoons
               </h3>
               <p class="paragraph home-feature">
                 Compatible with all type of comic book content from/to any
