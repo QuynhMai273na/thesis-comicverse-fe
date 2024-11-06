@@ -3,7 +3,6 @@ import React from "react";
 import Sidebar from "../Admin/AdminSidebar";
 import Header from "../Admin/AdminHeader";
 import Dashboard from "./UserDashboard";
-import TaskDashboard from "../../pages/UserManagement/UserTable";
 
 export default function Layout() {
     return (
@@ -18,7 +17,6 @@ export default function Layout() {
           <Header />
           <div className="p-2"> {/* Reduced padding here */}
             <Dashboard />
-            <TaskDashboard />
           </div>
         </div>
       </div>
