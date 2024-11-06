@@ -37,6 +37,7 @@ const TaskDashboard = () => {
         <thead>
           <tr>
             <th>Task ID</th>
+            <th>Task Name</th>
             <th>Assigned To</th>
             <th>Status</th>
             <th>Priority</th>
@@ -50,6 +51,7 @@ const TaskDashboard = () => {
           {tasks.map((task) => (
             <tr key={task.taskID}>
               <td>{task.taskID}</td>
+              <td>{task.taskName}</td>
               <td>{task.assignedTo}</td>
               <td>{task.taskStatus}</td>
               <td>{task.priority}</td>

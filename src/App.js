@@ -39,13 +39,14 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         {/* Home and admin pages */}
         <Route path="/home" element={<Home />} />
+        <Route path="/comicinfo" element={<ComicInfo />} />
         <Route path="/admin/dashboard" element={<AdminPage />} />
         {/* Layout and dashboard */}
         <Route path="admin/comicsmanage" element={<ComicPage />} />
         <Route path="/comics" element={<ComicForm />} />
         <Route path="/admin/addcomic" element={<CreateComic />} />
         <Route path="/admin/editcomic" element={<EditComic />} />
-        <Route path="/comicinfo" element={<ComicInfo />} />
+        <Route path="admin/comicinfo" element={<ComicInfo />} />
         {/*Task management*/}
         <Route path="/admin/taskmanage" element={<Task />} />
         <Route path="/admin/tasklist" element={<TaskList />} />

@@ -2,7 +2,7 @@ import React from "react";
 // import { Outlet } from "react-router-dom";
 import Sidebar from "../../components/Admin/AdminSidebar";
 import Header from "../../components/Admin/AdminHeader";
-// import Dashboard from "../AdminDashboard/Dashboard";
+import Dashboard from "../ComicManagement/ComicDashboard";
 
 export default function Layout() {
     return (
@@ -11,7 +11,7 @@ export default function Layout() {
             <Sidebar />
             <div className="flex-1">
                 <Header />
-                {/* <Dashboard /> */}
+                <Dashboard />
             </div>
         </div>
     );

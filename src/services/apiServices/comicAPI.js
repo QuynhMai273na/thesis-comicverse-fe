@@ -8,6 +8,10 @@ const comicService = {
     const response = await axios.get(baseURL);
     return response.data;
   },
+  getComicById: async (id) => {
+    const response = await axios.get(`${baseURL}/${id}`);
+    return response.data;
+  },
   addComic: async (comic) => {
     const response = await axios.post(baseURL, comic);
     return response.data;
