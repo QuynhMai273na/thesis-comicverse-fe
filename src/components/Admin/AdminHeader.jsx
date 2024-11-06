@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { IoMdSearch } from "react-icons/io";
+// import { IoMdSearch } from "react-icons/io";
+
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { useNavigate } from "react-router-dom";
 import { CiLogout } from "react-icons/ci";
@@ -30,7 +31,7 @@ export default function Header() {
   return (
     <div className="bg-cyan-800 h-16 px-4 flex justify-between items-center">
       <div>
-        <div className="relative group hidden sm:block">
+        {/* <div className="relative group hidden sm:block">
           <input
             type="text"
             placeholder="Search..."
@@ -46,7 +47,7 @@ export default function Header() {
                         group-hover:text-primary 
                         absolute top-1/2 -translate-y-1/2 right-3"
           />
-        </div>
+        </div> */}
       </div>
 
       {/* add div tag to show a text */}

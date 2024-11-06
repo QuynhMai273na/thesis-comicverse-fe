@@ -76,3 +76,9 @@ react-icon:
 ### 'npm install react-icon'
 recharts:
 ### 'npm i recharts'
+jwt-decode:
+### 'npm install jwt-decode'
+material-tailwind/react
+### 'npm install @material-tailwind/react'
+heroicons/react
+### 'npm install @heroicons/react'

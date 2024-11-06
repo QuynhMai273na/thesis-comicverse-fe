@@ -10,7 +10,6 @@ const UserManagementDashboard = () => {
   const handleUserAdded = () => {
     navigate("/admin/adduser"); // Redirect to Signup page
   };
-  
   useEffect(() => {
     const fetchTasks = async () => {
       try {
