@@ -76,3 +76,5 @@ react-icon:
 ### 'npm install react-icon'
 recharts:
 ### 'npm i recharts'
+jwt-decode:
+### 'npm install jwt-decode'
