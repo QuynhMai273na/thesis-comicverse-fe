@@ -3,7 +3,7 @@ import React from "react";
 import Sidebar from "../Admin/AdminSidebar";
 import Header from "../Admin/AdminHeader";
 import Dashboard from "./UserDashboard";
-import TaskDashboard from "../../pages/TaskManagement/TaskManagerDashboard";
+import TaskDashboard from "../../pages/UserManagement/UserTable";
 
 export default function Layout() {
     return (

@@ -13,19 +13,9 @@ const Menu = [
     link: "/home",
   },
   {
-    id: 2,
-    name: "Top Rated",
-    link: "/#toprated",
-  },
-  {
     id: 3,
     name: "New Releases",
     link: "/#newrelease",
-  },
-  {
-    id: 4,
-    name: "Genres",
-    link: "/#genres",
   },
   {
     id: 5,
@@ -88,12 +78,12 @@ const Navbar = () => {
   };
 
   return (
-    <div className="shadow-md bg-white dark:bg-gray-400 dark:text-white duration-200 relative z-40">
+    <div className="shadow-md bg-white duration-200 relative z-40">
       {/*Upper Navbar*/}
-      <div className="bg-primary/40 py-2">
+      <div className="text-black font-mono flex flex-col bg-primary/100 py-2 fixed top-0 left-0 right-0">
         <div className="container flex justify-between items-center">
           {/*Logo*/}
-          <div className="logo">
+          <div className="">
             <a
               href="/home"
               className="font-bold text-2xl sm:text-3xl flex gap-2"
@@ -102,13 +92,13 @@ const Navbar = () => {
             </a>
           </div>
           <div className="flex justify-center">
-            <ul className="sm:flex hidden items-center gap-4">
+            <ul className="sm:flex hidden items-center gap-5">
               {Menu.map((data) => (
                 <li key={data.id}>
                   <a
                     href={data.link}
                     className="inline-block px-4 
-                        hover:text-primary
+                        py-2 hover:bg-primary/20 rounded-lg
                         duration-200"
                   >
                     {data.name}
@@ -157,6 +147,7 @@ const Navbar = () => {
             {(currentUser) ? (
               <div className="flex items-center gap-4">
                 <span className="font-semibold">{currentUser}</span>
+                {/*Veef nha sua*/}
                 <button
                   onClick={handleLogout}
                   className="px-4 py-2 text-white bg-indigo-900 rounded-lg hover:bg-red-700"
