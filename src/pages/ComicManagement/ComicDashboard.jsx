@@ -9,7 +9,13 @@ const ComicManagementDashboard = () => {
   const navigate = useNavigate(); // Initialize the navigation hook
 
   const handleComicView = (id) => {
-    navigate(`/admin/comicinfo?id=${id}`); // Redirect to Signup page
+    if (
+      sessionStorage.getItem("internal-user") === null ||
+      sessionStorage.getItem("internal-user") === undefined ||
+      sessionStorage.getItem("internal-user") === "User"
+    ) {
+      navigate(`/comics/comicinfo?id=${id}`);
+    } else   navigate(`/admin/comicinfo?id=${id}`); // Redirect to Signup page
   };
 
   useEffect(() => {
@@ -23,7 +29,7 @@ const ComicManagementDashboard = () => {
 
         setLoading(false);
       } catch (err) {
-        setError("Failed to fetch tasks.");
+        setError("Failed to fetch Comic.");
         setLoading(false);
       }
     };
@@ -32,7 +38,7 @@ const ComicManagementDashboard = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading tasks...</p>;
+    return <p>Loading Comics...</p>;
   }
 
   if (error) {

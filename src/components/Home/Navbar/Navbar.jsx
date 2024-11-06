@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 // import { IoMdSearch } from "react-icons/io";
 // import { FaBookOpen } from "react-icons/fa";
 import { FaCaretDown } from "react-icons/fa";
-import Logo from "../../../assets/Logo/HomeLogo.png";
+import Logo from "../../../assets/img/logo/comic+verse+logo+no+background.png";
 
 const Menu = [
   {
@@ -15,7 +15,7 @@ const Menu = [
   {
     id: 3,
     name: "New Releases",
-    link: "/#newrelease",
+    link: "/comics",
   },
   {
     id: 5,
