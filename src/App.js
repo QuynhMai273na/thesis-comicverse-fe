@@ -26,8 +26,10 @@ import UserManagement from "./pages/UserManagement/UserManagement";
 import AddUser from "./pages/UserManagement/CreateUser";
 import EditUser from "./pages/UserManagement/EditUser";
 import UserInfo from "./pages/UserManagement/UserInfo";
+import ComicEditor from "./components/Editor/ComicEditor"
 
 import Unauthorized from "./pages/Error/Unauthorized";
+import NotFound from "./pages/Error/NotFound";
 
 function App() {
   <link href="./output.css" rel="stylesheet"></link>;
@@ -47,6 +49,8 @@ function App() {
         <Route path="/admin/addcomic" element={<CreateComic />} />
         <Route path="/admin/editcomic" element={<EditComic />} />
         <Route path="/admin/comicinfo" element={<ComicInfo />} />
+        <Route path="/comicEditor" element={<ComicEditor />} />
+        
         {/*Task management*/}
         <Route path="/admin/taskmanage" element={<Task />} />
         <Route path="/admin/tasklist" element={<TaskList />} />
@@ -65,6 +69,7 @@ function App() {
         <Route path="/admin/userinfo" element={<UserInfo />} />
         {/*Exception Pages*/}
         <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path="*" component={NotFound} />
       </Routes>
     </Router>
   );
