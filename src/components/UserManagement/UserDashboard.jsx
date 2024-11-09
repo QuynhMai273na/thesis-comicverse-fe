@@ -123,6 +123,44 @@ const UserManagementDashboard = () => {
     }
   };
 
+  const handleUpdateUser = async (userId) => {
+    // Delete user with userId
+    try {
+      if (!authToken) {
+        // Redirect to login page if authToken is missing
+        navigate("/login");
+      } else {
+        try {
+          // Decode the authToken to get the role
+          const decodedToken = jwtDecode(authToken);
+          const userRole =
+            decodedToken[
+              "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
+            ];
+
+          // Check if user has an admin role
+          if (userRole !== "Admin" && userRole !== "Manager") {
+            toast.error("You are not authorized to delete users.");
+          } else {
+            // Check if user has an admin role
+            if (userRole !== "Admin" && userRole !== "Manager") {
+              toast.error("You are not authorized to add new user.");
+            } else {
+              navigate(`/admin/edituser?id=${userId}`);
+            }
+          }
+        } catch (error) {
+          // Handle decoding errors (e.g., if authToken is invalid)
+          console.error("Invalid authToken:", error);
+          navigate("/login");
+        }
+      }
+    } catch (err) {
+      setError("Failed to delete user.");
+      toast.error(error.response?.data?.description || "Registration failed.");
+    }
+  };
+
   // Handle search input change
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
@@ -266,9 +304,7 @@ const UserManagementDashboard = () => {
                     <td className={classes}>
                       <div className="flex gap-2">
                         <button
-                          // onClick={() =>
-                          //   navigate(`/admin/edituser/${user.userId}`)
-                          // }
+                          onClick={() => handleUpdateUser(user.userId)}
                           className="text-blue-500"
                         >
                           <PencilIcon className="h-5 w-5" />

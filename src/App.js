@@ -46,7 +46,7 @@ function App() {
         <Route path="admin/comicsmanage" element={<ComicPage />} />
         <Route path="/admin/addcomic" element={<CreateComic />} />
         <Route path="/admin/editcomic" element={<EditComic />} />
-        <Route path="admin/comicinfo" element={<ComicInfo />} />
+        <Route path="/admin/comicinfo" element={<ComicInfo />} />
         {/*Task management*/}
         <Route path="/admin/taskmanage" element={<Task />} />
         <Route path="/admin/tasklist" element={<TaskList />} />
