@@ -7,9 +7,9 @@ import Dashboard from "../ComicManagement/ComicDashboard";
 export default function Layout() {
     return (
         <div className="flex flex-row  bg-neutral-100 h-screen w-screen
-        overflow-hidden">
+        overflow-hidden ">
             <Sidebar />
-            <div className="flex-1">
+            <div className="flex-1 overflow-y-auto">
                 <Header />
                 <Dashboard />
             </div>
