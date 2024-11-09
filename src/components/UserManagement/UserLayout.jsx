@@ -15,7 +15,7 @@ export default function Layout() {
         {/* Main content */}
         <div className="flex-1 flex flex-col overflow-y-scroll">
           <Header />
-          <div className="p-2"> {/* Reduced padding here */}
+          <div className="h-full p-2"> {/* Reduced padding here */}
             <Dashboard />
           </div>
         </div>

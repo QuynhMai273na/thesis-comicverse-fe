@@ -6,7 +6,11 @@ const comicService = {
   getAllUsers: async () => {
     const response = await axios.get(baseURL);
     return response.data;
-  }
+  },
+  deleteUser: async (id) => {
+    const response = await axios.delete(`${baseURL}/${id}`);
+    return response.data;
+  },
 };
 
 export default comicService;

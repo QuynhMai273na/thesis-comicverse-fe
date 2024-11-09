@@ -62,16 +62,16 @@ const ComicManagementDashboard = () => {
             key={comic.comicId}
             className="bg-cyan-200 rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 transform transition-all duration-200"
             onClick={() => handleComicView(comic.comicId)}
-            style={{ width: '200px' }} // Fixed narrower width
+            style={{ width: '15em' , height: '15em'}} // Fixed narrower width
           >
             <img
-              src={comic.imageUrl}
+              src={comic.avatarURL}
               alt={comic.comicTitle}
               className="w-full h-40 object-cover" // Height kept the same
             />
             <div className="p-2">
-              <h3 className="text-sm font-bold text-black truncate">{comic.comicTitle}</h3>
-              <p className="text-xs text-orange-400 font-semibold mt-1">{comic.price} coins</p>
+              <h3 className="text-2xs font-bold text-black truncate">{comic.comicTitle}</h3>
+              <p className="text-xs text-orange-400 font-semibold mt-1">{comic.description}</p>
             </div>
           </div>
         ))}

@@ -4,6 +4,7 @@ import Image2 from "../../../assets/ComicPoster/2.jpg";
 import Image3 from "../../../assets/ComicPoster/3.jpg";
 import Image4 from "../../../assets/ComicPoster/4.png";
 import Slider from "react-slick";
+import { useNavigate } from "react-router-dom"; // Assumes you're using react-router
 
 const ImageList = [
     {
@@ -50,6 +51,10 @@ const Slide = () => {
         pauseOnHover: false,  
         pauseOnFocus: true,
     };
+    const navigate = useNavigate();
+
+    // handleComicView={
+    // }
 
     return (
         <div className="relative overflow-hidden min-h-[550px]
@@ -77,10 +82,10 @@ const Slide = () => {
                                         {data.description}
                                     </p>
                                     <div>
-                                        <button
+                                        <button onClick={()=>navigate("/comics")}
                                             className="bg-gradient-to-r from-primary to-secondary
                                             hover:scale-105 duration-200 text-white px-4 py-2 rounded-full">
-                                            Read now
+                                            More Comics
                                         </button>
                                     </div>
                                 </div>

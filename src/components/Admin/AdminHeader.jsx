@@ -30,32 +30,13 @@ export default function Header() {
   };
   return (
     <div className="bg-cyan-800 h-16 px-4 flex justify-between items-center">
-      <div>
-        {/* <div className="relative group hidden sm:block">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-[200px] sm:w-[200px]
-                        group-hover:w-[300px] transition-all
-                        duration-300 rounded-full border
-                        border-black-300 px-2 py-1
-                        focus:outline-none focus: border-1
-                        focus:border-primary"
-          />
-          <IoMdSearch
-            className="text-gray-500 
-                        group-hover:text-primary 
-                        absolute top-1/2 -translate-y-1/2 right-3"
-          />
-        </div> */}
+      <div
+        className="text-white text-lg font-semibold"
+      >
+        Hi, {curentUser}.
       </div>
 
-      {/* add div tag to show a text */}
-      <div className="text-white text-lg font-semibold">Hi, {curentUser}.</div>
-
       <div className="flex items-center gap-2 mr-2">
-        {/* <HiOutlineChatAlt fontSize={24} />
-                <HiOnlineBell fontSize={24} /> */}
         <Menu as="div" className="relative">
           <div>
             <MenuButton

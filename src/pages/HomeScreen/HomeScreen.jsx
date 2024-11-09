@@ -4,6 +4,7 @@ import Slide from "../../components/Home/Slide/Slide";
 import HomeFeaturesTable from "./HomeFeatures";
 import HomeBenifit from "./HomeBenifits";
 import HomeShowCases from "./ShowCases/HomeShowCase";
+import Footer from "../../components/footer/Footer";
 
 
 const Homepage = () => {
@@ -16,6 +17,7 @@ const Homepage = () => {
       <HomeFeaturesTable />
       <HomeBenifit />
       <HomeShowCases />
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import accountService from "../../services/apiServices/accountAPI";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddUserForm = () => {
   const [userData, setUserData] = useState({
@@ -15,7 +17,6 @@ const AddUserForm = () => {
     // dateOfBirth: "",
   });
   const nav = useNavigate();
-
   const [registerStatus, setRegisterStatus] = useState(""); // State to manage login status message
 
   const handleInputChange = (e) => {
@@ -26,25 +27,23 @@ const AddUserForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("User data:", userData);
-    // Add logic to send data to backend
     try {
       const response = await accountService.register(userData);
+
+      console.log("Response:", response);
+
       if (response.key !== "Failed" && response.value) {
-        setRegisterStatus("Create successful! Now you can login"); // Set success message
+        toast.success("Create user successfully!");
       } else {
-        setRegisterStatus(
-          "Create failed. Please check your username or password."
-        );
+        toast.error("Create failed. Please check your username or password.");
       }
     } catch (error) {
       console.error("Error Regist Account:", error);
-      console.log(error.response.data);
-      setRegisterStatus(error.response.data.description);
+      toast.error(error.response?.data?.description || "Registration failed.");
     }
-
     setTimeout(() => {
       nav("/admin/usermanage");
-    }, 2000);
+    }, 3000);
   };
 
   return (
@@ -166,28 +165,17 @@ const AddUserForm = () => {
             />
           </div>
 
-          {/* <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Date of Birth:
-            </label>
-            <input
-              type="text"
-              name="phoneNumber"
-              value={userData.dateOfBirth}
-              onChange={handleInputChange}
-              className="w-full p-2 mt-1 border rounded-md"
-              placeholder="Date of Birth"
-            />
-          </div> */}
-
           <div className="flex justify-end mt-6">
             <button
               type="submit"
               className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
             >
-              Add User
+              Add new User
             </button>
+            {/* <button onClick={notify}>Notify!</button> */}
+            <ToastContainer />
           </div>
+
         </form>
         {registerStatus && <p className="login-status">{registerStatus}</p>}{" "}
       </div>

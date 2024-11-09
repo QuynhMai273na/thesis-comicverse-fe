@@ -27,7 +27,7 @@ function App() {
 
         // // Check if user has an admin role
         if (
-          userRole !== "SuperAdmin" &&
+          userRole !== "Admin" &&
           userRole !== "Quality Control" &&
           userRole !== "Manager" &&
           userRole !== "Employee"

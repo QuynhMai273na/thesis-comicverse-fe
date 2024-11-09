@@ -77,6 +77,11 @@ const Navbar = () => {
     nav("/login"); // Redirect to login page
   };
 
+    // Logout function
+    const handleAdmin = () => {
+      nav("/admin/dashboard"); 
+    };
+
   return (
     <div className="shadow-md bg-white duration-200 relative z-40">
       {/*Upper Navbar*/}
@@ -88,7 +93,7 @@ const Navbar = () => {
               href="/home"
               className="font-bold text-2xl sm:text-3xl flex gap-2"
             >
-              <img src={Logo} alt="" className="w-10" /> Comicverse
+              <img src={Logo} alt="" className="w-10" /> COMICVERSER
             </a>
           </div>
           <div className="flex justify-center">
@@ -146,7 +151,12 @@ const Navbar = () => {
           <div className="flex justify-between items-center gap-4">
             {(currentUser) ? (
               <div className="flex items-center gap-4">
-                <span className="font-semibold">{currentUser}</span>
+                <button
+                  onClick={handleAdmin}
+                  className="px-4 py-2 text-white"
+                >
+                  {currentUser}
+                </button>
                 <button
                   onClick={handleLogout}
                   className="px-4 py-2 text-white bg-indigo-500 rounded-lg hover:bg-red-300"
