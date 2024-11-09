@@ -1,6 +1,4 @@
 import React from "react";
-import { FaBook } from "react-icons/fa";
-import { BsCollectionFill } from "react-icons/bs";
 import { MdPeople, MdPublish } from "react-icons/md";
 import { IoMdSettings } from "react-icons/io";
 import { IoMdHelpCircle } from "react-icons/io";
@@ -8,8 +6,14 @@ import { MdDashboard } from "react-icons/md";
 import { GoTasklist } from "react-icons/go";
 import { TbWorldCheck } from "react-icons/tb";
 import { GiSpellBook } from "react-icons/gi";
-
+import { MdScreenShare } from "react-icons/md";
 export const AdminMenuUpper = [
+  {
+    key: "Home",
+    label: "Home",
+    path: "/home",
+    icon: <MdScreenShare />,
+  },
   {
     key: "Dashboard",
     label: "Dashboard",

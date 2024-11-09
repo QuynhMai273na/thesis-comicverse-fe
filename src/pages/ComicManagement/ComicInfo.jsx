@@ -48,9 +48,8 @@ const ComicDetails = () => {
     publishingPlace: "Amsterdam",
     collation: "401-460; ill.; 29cm",
     localURL: `${comics.localhostURL}`,
-    // remoteURL: `${comics.remoteURL}`,
-    remoteURL:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnSfKJQcT2Ilh1ZuvUwirgn4y8ULxOrNoflg&s",
+    remoteURL: `${comics.remoteURL}`,
+    avatarURL: `${comics.avatarURL}`,
   };
 
   const navigate = useNavigate();
@@ -65,7 +64,7 @@ const ComicDetails = () => {
         {/* comic Cover */}
         <div className="w-1/4">
           <img
-            src={comic.remoteURL}
+            src={comic.avatarURL}
             alt="comic Cover"
             className="rounded-md"
           />
