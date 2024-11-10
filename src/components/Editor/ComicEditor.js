@@ -1,8 +1,37 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import WebViewer from "@pdftron/webviewer";
 import "./ComicEditor.css";
+import { useLocation } from "react-router-dom";
 
 const ComicEditor = () => {
+  const [comicURL, setComicsURL] = useState([]);
+  const [comics, setComics] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    const fetchComics = async () => {
+      try {
+        setLoading(true);
+
+        const params = new URLSearchParams(location.search);
+        const url = params.get("url");
+        setComicsURL(url);
+        console.log(url);
+
+        
+        setLoading(false);
+      } catch (err) {
+        setError("Failed to edit this comic.");
+        setLoading(false);
+      }
+    };
+
+    fetchComics();
+  }, [location]);
+
+  console.log(comics.remoteURL);
   const viewer = useRef(null);
 
   // if using a class, equivalent of componentDidMount
@@ -11,11 +40,13 @@ const ComicEditor = () => {
       return;
     } else {
       // If you prefer to use the Iframe implementation, you can replace this line with: WebViewer.Iframe(...)
-      WebViewer.WebComponent(
+      WebViewer.Iframe(
         {
           path: "/lib",
-          initialDoc: "/files/PDFTRON_about.pdf",
-          licenseKey: "your_license_key", // sign up to get a free trial key at https://dev.apryse.com
+          initialDoc: 
+            "https://pdfdatabase.blob.core.windows.net/pdf-db-container/doraemon-chap3.pdf?sp=r&st=2024-11-10T15:21:24Z&se=2024-11-11T04:21:24Z&spr=https&sv=2022-11-02&sr=b&sig=EElhRc6HfKOerTVD801TijrK55wQj2xIOH%2B86YW70yQ%3D",
+          licenseKey:
+            "demo:1731132602231:7efd560703000000003daf23ac217f860c34af8fa302683151153db1da",
         },
         viewer.current
       ).then((instance) => {
@@ -41,7 +72,6 @@ const ComicEditor = () => {
 
   return (
     <div className="ComicEditor">
-      <div className="header">React sample</div>
       <div className="webviewer" ref={viewer}></div>
     </div>
   );

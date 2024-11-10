@@ -2,7 +2,7 @@ import axios from "axios";
 
 const baseURL = `${process.env.REACT_APP_API_URL}/Assign`;
 
-const dashboardService = {
+const taskService = {
   GetListTask: async () => {
     try {
       console.log();
@@ -11,7 +11,7 @@ const dashboardService = {
 
       const config = {
         headers: {
-        //   Authorization: `bearer ${acc.token}`
+          //   Authorization: `bearer ${acc.token}`
         },
         timeout: 1000, // You can adjust the timeout based on your needs
       };
@@ -28,6 +28,29 @@ const dashboardService = {
       }
     }
   },
+
+  deleteTask: async (assignID) => {
+    try {
+      const url = `${baseURL}/${assignID}`;
+      console.log(url);
+      const config = {
+        headers: {
+          //   Authorization: `bearer ${acc.token}`
+        },
+        timeout: 1000, // You can adjust the timeout based on your needs
+      };
+      const response = await axios.delete(url, assignID);
+      const responseData = response.data;
+      console.log(response);
+      return responseData;
+    } catch (err) {
+      if (axios.isAxiosError(err) && err.response) {
+        console.log(err.response.data);
+      } else {
+        console.log("An error occurred:", err.message);
+      }
+    }
+  },
 };
 
-export default dashboardService;
+export default taskService;

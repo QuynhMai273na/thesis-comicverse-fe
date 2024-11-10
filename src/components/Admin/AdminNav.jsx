@@ -8,12 +8,7 @@ import { TbWorldCheck } from "react-icons/tb";
 import { GiSpellBook } from "react-icons/gi";
 import { MdScreenShare } from "react-icons/md";
 export const AdminMenuUpper = [
-  {
-    key: "Home",
-    label: "Home",
-    path: "/home",
-    icon: <MdScreenShare />,
-  },
+
   {
     key: "Dashboard",
     label: "Dashboard",
@@ -49,6 +44,12 @@ export const AdminMenuUpper = [
     label: "Users",
     path: "/admin/usermanage",
     icon: <MdPeople />,
+  },
+  {
+    key: "Home",
+    label: "Home",
+    path: "/home",
+    icon: <MdScreenShare />,
   },
 ];
 

@@ -14,14 +14,14 @@ import { jwtDecode } from "jwt-decode";
 const USER_TABLE_HEAD = [
   "Username",
   "Email",
-  "First Name",
-  "Last Name",
+  "Full name",
+  // "Last Name",
+  "Role",
+  "Status",
   "Phone Number",
   "Date of Birth",
   "Created At",
   "Last Login",
-  "Role",
-  "Status",
   "Actions",
 ];
 
@@ -242,9 +242,9 @@ const UserManagementDashboard = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-2">
-            <button className="border border-gray-300 text-sm px-4 py-2 rounded hover:bg-gray-100">
+            {/* <button className="border border-gray-300 text-sm px-4 py-2 rounded hover:bg-gray-100">
               View all
-            </button>
+            </button> */}
             <button
               onClick={handleUserAdded}
               className="flex items-center gap-2 text-sm px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
@@ -283,12 +283,8 @@ const UserManagementDashboard = () => {
                   <tr key={user.userId}>
                     <td className={classes}>{user.userName}</td>
                     <td className={classes}>{user.email}</td>
-                    <td className={classes}>{user.firstName}</td>
-                    <td className={classes}>{user.lastName}</td>
-                    <td className={classes}>{user.phoneNumber}</td>
-                    <td className={classes}>{user.dateOfBirth}</td>
-                    <td className={classes}>{user.createdAt}</td>
-                    <td className={classes}>{user.lastLogin}</td>
+                    <td className={classes}>{user.firstName} {user.lastName}</td>
+                    {/* <td className={classes}>{user.lastName}</td> */}
                     <td className={classes}>{user.role}</td>
                     <td className={classes}>
                       <span
@@ -301,6 +297,10 @@ const UserManagementDashboard = () => {
                         {user.status}
                       </span>
                     </td>
+                    <td className={classes}>{user.phoneNumber}</td>
+                    <td className={classes}>{user.dateOfBirth}</td>
+                    <td className={classes}>{user.createdAt}</td>
+                    <td className={classes}>{user.lastLogin}</td>
                     <td className={classes}>
                       <div className="flex gap-2">
                         <button

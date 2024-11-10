@@ -45,11 +45,11 @@ function App() {
         <Route path="/comics" element={<UserComicPages />} />
         {/* Layout and dashboard */}
         <Route path="/admin/dashboard" element={<AdminPage />} />
-        <Route path="admin/comicsmanage" element={<ComicPage />} />
+        <Route path="/admin/comicsmanage" element={<ComicPage />} />
         <Route path="/admin/addcomic" element={<CreateComic />} />
         <Route path="/admin/editcomic" element={<EditComic />} />
         <Route path="/admin/comicinfo" element={<ComicInfo />} />
-        <Route path="/comicEditor" element={<ComicEditor />} />
+        <Route path="/admin/comicinfo/comicEditor" element={<ComicEditor />} />
         
         {/*Task management*/}
         <Route path="/admin/taskmanage" element={<Task />} />
