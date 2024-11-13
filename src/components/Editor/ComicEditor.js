@@ -44,7 +44,7 @@ const ComicEditor = () => {
         {
           path: "/lib",
           initialDoc: 
-            "https://pdfdatabase.blob.core.windows.net/pdf-db-container/doraemon-chap3.pdf?sp=r&st=2024-11-10T15:21:24Z&se=2024-11-11T04:21:24Z&spr=https&sv=2022-11-02&sr=b&sig=EElhRc6HfKOerTVD801TijrK55wQj2xIOH%2B86YW70yQ%3D",
+            "https://pdfdatabase.blob.core.windows.net/pdf-db-container/doraemon-chap3.pdf?sp=r&st=2024-11-13T01:05:39Z&se=2024-11-20T09:05:39Z&spr=https&sv=2022-11-02&sr=b&sig=lcL7Ssv6CA8J2%2Fp6An6pWGSiHZEfYCpI%2BFmV%2FMMYbq0%3D",
           licenseKey:
             "demo:1731132602231:7efd560703000000003daf23ac217f860c34af8fa302683151153db1da",
         },
