@@ -202,12 +202,17 @@ const EditUserForm = () => {
             >
               Edit User
             </button>
-            {/* <button onClick={notify}>Notify!</button> */}
-            <ToastContainer />
+            <button
+              onClick={() => nav("/admin/usermanage")}
+              className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+            >
+              Cancel
+            </button>
           </div>
         </form>
         {registerStatus && <p className="login-status">{registerStatus}</p>}{" "}
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -35,15 +35,15 @@ const AddUserForm = () => {
       if (response.key !== "Failed" && response.value) {
         toast.success("Create user successfully!");
       } else {
-        toast.error("Create failed. Please check your username or password.");
+        toast.error("Create failed!");
       }
+      setTimeout(() => {
+        nav("/admin/usermanage");
+      }, 3000);
     } catch (error) {
       console.error("Error Regist Account:", error);
-      toast.error(error.response?.data?.description || "Registration failed.");
+      toast.error(error.response?.data?.description || "Create new user failed.");
     }
-    setTimeout(() => {
-      nav("/admin/usermanage");
-    }, 3000);
   };
 
   return (
@@ -172,10 +172,18 @@ const AddUserForm = () => {
             >
               Add new User
             </button>
+
             {/* <button onClick={notify}>Notify!</button> */}
+            <button
+              onClick={() => {
+                nav("/admin/usermanage");
+              }}
+              className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
+            >
+              Cancel
+            </button>
             <ToastContainer />
           </div>
-
         </form>
         {registerStatus && <p className="login-status">{registerStatus}</p>}{" "}
       </div>

@@ -20,7 +20,7 @@ const USER_TABLE_HEAD = [
   "Status",
   "Phone Number",
   "Date of Birth",
-  "Created At",
+  // "Created At",
   "Last Login",
   "Actions",
 ];
@@ -299,7 +299,7 @@ const UserManagementDashboard = () => {
                     </td>
                     <td className={classes}>{user.phoneNumber}</td>
                     <td className={classes}>{user.dateOfBirth}</td>
-                    <td className={classes}>{user.createdAt}</td>
+                    {/* <td className={classes}>{user.createdAt}</td> */}
                     <td className={classes}>{user.lastLogin}</td>
                     <td className={classes}>
                       <div className="flex gap-2">
