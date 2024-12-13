@@ -69,7 +69,7 @@ function App() {
         <Route path="/admin/userinfo" element={<UserInfo />} />
         {/*Exception Pages*/}
         <Route path="/unauthorized" element={<Unauthorized />} />
-        <Route path="*" component={NotFound} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </Router>
   );
