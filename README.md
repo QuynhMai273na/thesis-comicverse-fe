@@ -68,3 +68,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Package need to be install here:
+react-scripts:
+### 'npm install react-scripts'
+react-icon:
+### 'npm install react-icon'
+recharts:
+### 'npm i recharts'
+jwt-decode:
+### 'npm install jwt-decode'
+material-tailwind/react
+### 'npm install @material-tailwind/react'
+heroicons/react
+### 'npm install @heroicons/react'

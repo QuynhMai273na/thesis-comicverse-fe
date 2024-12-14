@@ -1,0 +1,126 @@
+/* Container for the entire signup layout */
+.signup-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Left content (text and description) */
+.left-content {
+    width: 50%;
+    padding: 40px;
+    color: #333;
+}
+
+.left-content h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.left-content p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Signup form styling */
+.addUser {
+    width: 40%;
+    background-color: white;
+    padding: 40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-right: 50px;
+    margin-bottom: 40px;
+}
+
+/* Styling the form fields */
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputGroup label {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.inputGroup input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Styling the button */
+button.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.btn:hover {
+    background-color: #138f9c;
+}
+
+/* Login section styling */
+.toLogin {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.toLogin a {
+    color: #17a2b8;
+    text-decoration: none;
+}
+
+.toLogin a:hover {
+    text-decoration: underline;
+}
+
+.signupOption {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+/* Social media icons */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons i {
+    font-size: 1.5rem;
+    color: #17a2b8;
+    margin-right: 15px;
+}
+
+.social-icons i:hover {
+    color: #138f9c;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .signup-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .left-content, .addUser {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .addUser {
+        margin-top: 20px;
+    }
+}
